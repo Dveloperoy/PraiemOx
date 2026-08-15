@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JSON Data</title>
+</head>
+<body>
+  <pre id="json">Loading...</pre>
+
+  <script>
+    fetch("data.json")
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("json").textContent =
+          JSON.stringify(data, null, 2);
+      })
+      .catch(error => {
+        document.getElementById("json").textContent =
+          "Error loading JSON";
+      });
+  </script>
+</body>
+</html>
